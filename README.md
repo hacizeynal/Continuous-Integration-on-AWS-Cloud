@@ -21,5 +21,23 @@ In the previous [project](https://github.com/hacizeynal/Continuous-Integration-U
 * Automated build process 
 * Developer should be notified for every Build & Test (If code fails to pass any QualityGate)
 
+## AWS Services for project
+
+* Code Commit > Version Control Remote Repository
+* Code Artifact > Maven Repository for Dependencies
+* Code Build > Fully managed continuous integration service that compiles source code, runs tests, and produces software packages that are ready to deploy
+* Code Deploy > Artifact Deployment Service
+* SonarCloud > Cloud Based SonarQube service
+* CheckStyle > Code Analysis from build job
+* CodePipeline > Service to integrate all jobs together
+* S3 Bucket > Storing Artifacts
+* SNS Notifications 
+
+High Level Overview for pipeline 
+
+[![Screenshot-2022-10-28-at-22-04-44.png](https://i.postimg.cc/Kz3kmVxV/Screenshot-2022-10-28-at-22-04-44.png)](https://postimg.cc/k69XcTVF)
+
+
+
 
 
