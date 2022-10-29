@@ -11,7 +11,7 @@ In the previous [project](https://github.com/hacizeynal/Continuous-Integration-U
 
 ### Problem with current scenario
 
-* In Agile SDLC there will be frequent
+* In Agile SDLC there will be frequent code changes
 * Not so frequently code will be tested
 * Bugs will be accumulated and it will be hard to fix them for Developers
 
