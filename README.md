@@ -91,6 +91,22 @@ Snippet from settings.xml with new details.
 </settings>
 
 ```
+### Configure Cloud SonarQube 
+
+We will need login account from Cloud SonarQube for successfull authentication.After succesfull login to **sonarcloud.io** ,we will need to create security token to integrate Cloud SonarQube to our AWS CodeCommit.
+
+Since we will login via GitHub account ,all GitHub repositories will be imported by default to SonarQube dashboard ,but we will create project manually for code analysis. We will need to remember following parameters from SonarQube for successfull integration
+
+* Security Token
+* SonarQube Cloud URL
+* Organization name
+* Project name
+
+After saving above parameters ,we will need to navigate AWS and open **Systems Manager>Parameter Store** service.
+For all of them will need to create parameter on SSM
+
+[![Screenshot-2022-10-30-at-00-20-47.png](https://i.postimg.cc/j5tx9C0n/Screenshot-2022-10-30-at-00-20-47.png)](https://postimg.cc/8FXgfpCT)
+
 
 
 
