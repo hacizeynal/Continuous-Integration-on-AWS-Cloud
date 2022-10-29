@@ -21,7 +21,7 @@ In the previous [project](https://github.com/hacizeynal/Continuous-Integration-U
 * Automated build process 
 * Developer should be notified for every Build & Test (If code fails to pass any QualityGate)
 
-## AWS Services for project
+### AWS Services for project
 
 * Code Commit > Version Control Remote Repository
 * Code Artifact > Maven Repository for Dependencies
@@ -32,10 +32,14 @@ In the previous [project](https://github.com/hacizeynal/Continuous-Integration-U
 * CodePipeline > Service to integrate all jobs together
 * S3 Bucket > Storing Artifacts
 * SNS Notifications 
+* IAM 
 
 High Level Overview for pipeline 
 
 [![Screenshot-2022-10-28-at-22-04-44.png](https://i.postimg.cc/Kz3kmVxV/Screenshot-2022-10-28-at-22-04-44.png)](https://postimg.cc/k69XcTVF)
+
+## Set up CodeCommit on AWS
+
 
 
 
