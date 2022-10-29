@@ -40,6 +40,8 @@ High Level Overview for pipeline
 
 ## Set up CodeCommit on AWS
 
+We will create private Git repository in AWS Cloud. Please follow [link](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-ssh-unixes.html#setting-up-ssh-unixes-keys) to configure SSH settings in order to clone/push code to CodeCommit.
+
 
 
 
