@@ -40,7 +40,6 @@ High Level Overview for pipeline
 
 ## Set up CodeCommit on AWS
 
-Placeholder.
 
 
 
