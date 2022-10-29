@@ -40,11 +40,60 @@ High Level Overview for pipeline
 
 ## Set up CodeCommit on AWS
 
+### Create Private Repository
+
 We will create private Git repository in AWS Cloud. Please follow [link](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-ssh-unixes.html#setting-up-ssh-unixes-keys) to configure SSH settings in order to clone/push code to Code Commit.
 
 [![Screenshot-2022-10-29-at-09-58-28.png](https://i.postimg.cc/CKHBptMr/Screenshot-2022-10-29-at-09-58-28.png)](https://postimg.cc/WDzbM5k0)
 
-.
+### Create Artifact Repository
+
+We will create Artifact Repository which will download Maven dependencies from Maven Central repo and save it on our AWS Artifact Repo.
+
+We will update settings.xml and pom.xml with code artifact details such as new token ,repository name and list of servers.
+
+Snippet from settings.xml with new details.
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+  <servers>
+        <server>
+            <id>zhajili-devops-maven-central-store</id>
+            <username>aws</username>
+            <password>${env.CODEARTIFACT_AUTH_TOKEN}</password>
+        </server>
+    </servers>
+<profiles>
+  <profile>
+    <id>zhajili-devops-maven-central-store</id>
+    <repositories>
+      <repository>
+        <id>zhajili-devops-maven-central-store</id>
+    <url>https://zhajili-devops-866308211434.d.codeartifact.us-east-1.amazonaws.com/maven/maven-central-store/</url>
+      </repository>
+    </repositories>
+  </profile>
+</profiles>
+<activeProfiles>
+        <activeProfile>default</activeProfile>
+    </activeProfiles>
+<mirrors>
+  <mirror>
+    <id>zhajili-devops-maven-central-store</id>
+    <name>zhajili-devops-maven-central-store</name>
+    <url>https://zhajili-devops-866308211434.d.codeartifact.us-east-1.amazonaws.com/maven/maven-central-store/</url>
+    <mirrorOf>*</mirrorOf>
+  </mirror>
+</mirrors>
+</settings>
+
+```
+
+
+
 
 
 
