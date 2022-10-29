@@ -31,7 +31,7 @@ In the previous [project](https://github.com/hacizeynal/Continuous-Integration-U
 * CheckStyle > Code Analysis from build job
 * CodePipeline > Service to integrate all jobs together
 * S3 Bucket > Storing Artifacts
-* SNS Notifications 
+* SNS > Notifications 
 * IAM 
 
 High Level Overview for pipeline 
@@ -40,7 +40,7 @@ High Level Overview for pipeline
 
 ## Set up CodeCommit on AWS
 
-
+Placeholder.
 
 
 
