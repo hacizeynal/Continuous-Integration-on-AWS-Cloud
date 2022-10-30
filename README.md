@@ -107,6 +107,80 @@ For all of them will need to create parameter on SSM
 
 [![Screenshot-2022-10-30-at-00-20-47.png](https://i.postimg.cc/j5tx9C0n/Screenshot-2022-10-30-at-00-20-47.png)](https://postimg.cc/8FXgfpCT)
 
+### Create Build Project
+
+It is like creating Jenkins project on premise ,this time we will do it via CodeBuild on AWS.
+
+Following configuration parameters will set
+
+* Source Provider > AWS CodeCommit (It will be our private repo ,like our GitHub repo) 
+* Repository > zhajili-DevOps 
+* Branch > main 
+* Operating System > Ubuntu (since we will run maven commands) 
+* Environment type > Linux
+* Role name > codebuild-first_build_project_-service-role (this role should have access to parameters which we created via SSM ,so we will need to give correct access via IAM)
+* Buildspec > We can think this file as Jenkinsfile ,this file will have commands/instucations that needs to be executed.
+We need to update env with the same parameter name which we added to the SSM.
+
+```
+version: 0.2
+env:
+  parameter-store:
+    LOGIN: sonartoken
+    HOST: HOST
+    Organization: Organization
+    Project: Project
+    CODEARTIFACT_AUTH_TOKEN: codeartifact-token
+phases:
+  install:
+    runtime-versions:
+      java: corretto8
+    commands:
+    - cp ./settings.xml /root/.m2/settings.xml
+  pre_build:
+    commands:
+      - apt-get update
+      - apt-get install -y jq checkstyle
+      - wget http://www-eu.apache.org/dist/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz
+      - tar xzf apache-maven-3.5.4-bin.tar.gz
+      - ln -s apache-maven-3.5.4 maven
+      - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.3.0.1492-linux.zip
+      - unzip ./sonar-scanner-cli-3.3.0.1492-linux.zip
+      - export PATH=$PATH:/sonar-scanner-3.3.0.1492-linux/bin/
+  build:
+    commands:
+      - mvn test
+      - mvn checkstyle:checkstyle
+      - echo "Installing JDK11 as its a dependency for sonarqube code analysis"
+      - apt-get install -y openjdk-11-jdk
+      - export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+      - mvn sonar:sonar -Dsonar.login=$LOGIN -Dsonar.host.url=$HOST -Dsonar.projectKey=$Project -Dsonar.organization=$Organization -Dsonar.java.binaries=target/test-classes/com/visualpathit/account/controllerTest/ -Dsonar.junit.reportsPath=target/surefire-reports/ -Dsonar.jacoco.reportsPath=target/jacoco.exec -Dsonar.java.checkstyle.reportPaths=target/checkstyle-result.xml
+      - sleep 5
+      - curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=$Project >result.json
+      - cat result.json
+      - if [ $(jq -r '.projectStatus.status' result.json) = ERROR ] ; then $CODEBUILD_BUILD_SUCCEEDING -eq 0 ;fi
+```
+Let's start the Build ,after some time we see that Build has failed. After checking logs we can following logs
+
+```
+[Container] 2022/10/30 13:23:41 Phase context status code: Decrypted Variables Error Message: AccessDeniedException: User: arn:aws:sts::866308211434:assumed-role/codebuild-first_AWS_build_project-service-role/AWSCodeBuild-e4bc6a2e-ca48-4d73-9514-43b59ad8a665 is not authorized to perform: ssm:GetParameters on resource: arn:aws:ssm:us-east-1:866308211434:parameter/Project because no identity-based policy allows the ssm:GetParameters action
+
+```
+Remember that above we have mentioned the **codebuild-first_build_project_-service-role** should have proper permission to access SSM Parameter store.
+
+We can run Policy Simulator and can see that this particular role does not have access.
+
+[![Screenshot-2022-10-30-at-14-30-32.png](https://i.postimg.cc/DZ642Ny8/Screenshot-2022-10-30-at-14-30-32.png)](https://postimg.cc/34yx1nGT)
+
+
+
+
+
+
+
+
+
+
 
 
 
