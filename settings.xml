@@ -4,7 +4,7 @@
   xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
   <servers>
         <server>
-            <id>zhajili-devops-maven-central-store</id>
+            <id>zhajili-devops-zhajili-artifact-repo</id>
             <username>aws</username>
             <password>${env.CODEARTIFACT_AUTH_TOKEN}</password>
         </server>
@@ -14,8 +14,8 @@
     <id>zhajili-devops-maven-central-store</id>
     <repositories>
       <repository>
-        <id>zhajili-devops-maven-central-store</id>
-    <url>https://zhajili-devops-866308211434.d.codeartifact.us-east-1.amazonaws.com/maven/maven-central-store/</url>
+        <id>zhajili-devops-zhajili-artifact-repo</id>
+    <url>https://zhajili-devops-866308211434.d.codeartifact.us-east-1.amazonaws.com/maven/zhajili-artifact-repo/</url>
       </repository>
     </repositories>
   </profile>
@@ -25,9 +25,9 @@
     </activeProfiles>
 <mirrors>
   <mirror>
-    <id>zhajili-devops-maven-central-store</id>
-    <name>zhajili-devops-maven-central-store</name>
-    <url>https://zhajili-devops-866308211434.d.codeartifact.us-east-1.amazonaws.com/maven/maven-central-store/</url>
+    <id>zhajili-devops-zhajili-artifact-repo</id>
+    <name>zhajili-devops-zhajili-artifact-repo</name>
+    <url>https://zhajili-devops-866308211434.d.codeartifact.us-east-1.amazonaws.com/maven/zhajili-artifact-repo/</url>
     <mirrorOf>*</mirrorOf>
   </mirror>
 </mirrors>
