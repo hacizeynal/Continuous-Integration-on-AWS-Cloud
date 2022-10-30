@@ -11,7 +11,7 @@
     </servers>
 <profiles>
   <profile>
-    <id>zhajili-devops-maven-central-store/</id>
+    <id>zhajili-devops-maven-central-store</id>
     <repositories>
       <repository>
         <id>zhajili-devops-maven-central-store</id>
