@@ -208,9 +208,9 @@
     </build>
   <repositories>
       <repository>
-        <id>zhajili-devops-maven-central-store</id>
-        <name>zhajili-devops-maven-central-store</name>
-    <url>https://zhajili-devops-866308211434.d.codeartifact.us-east-1.amazonaws.com/maven/maven-central-store/</url>
+        <id>zhajili-devops-zhajili-artifact-repo</id>
+        <name>zhajili-devops-zhajili-artifact-repo</name>
+    <url>https://zhajili-devops-866308211434.d.codeartifact.us-east-1.amazonaws.com/maven/zhajili-artifact-repo/</url>
       </repository>
     </repositories>
 </project>
