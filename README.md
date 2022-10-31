@@ -172,6 +172,19 @@ We can run Policy Simulator and can see that this particular role does not have 
 
 [![Screenshot-2022-10-30-at-14-30-32.png](https://i.postimg.cc/DZ642Ny8/Screenshot-2022-10-30-at-14-30-32.png)](https://postimg.cc/34yx1nGT)
 
+Let's run our first project named **sonar_code_analysis** ,since it is our first run ,it will take some time to download dependencies as well ,so it will take a bit longer than others. After completion ,let's verify status from Cloud SonarQube ,it shows passed since we don't have any QualityGate attached to project.
+
+[![Screenshot-2022-10-31-at-09-17-37.png](https://i.postimg.cc/02rLZ0P1/Screenshot-2022-10-31-at-09-17-37.png)](https://postimg.cc/vcFqZ940)
+
+I have created Quality Gate with condition and attached to the project ,condition will be checking bug number and if will detect 30 bugs policy build will fail.
+
+In our second try project has failed ,because our rule does not meet our as condition.
+
+[![Screenshot-2022-10-31-at-09-30-23.png](https://i.postimg.cc/TP6615mL/Screenshot-2022-10-31-at-09-30-23.png)](https://postimg.cc/rDQbYmfM)
+
+As seen on picture ,SonarQube detected 71 bugs ,which is above our condition (30 bugs).
+
+
 
 
 
