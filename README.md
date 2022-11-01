@@ -216,9 +216,14 @@ We can also verify that our SNS Notifications are working fine with below screen
 
 [![Screenshot-2022-11-01-at-18-27-07.png](https://i.postimg.cc/TYhn2HZG/Screenshot-2022-11-01-at-18-27-07.png)](https://postimg.cc/7f85mXHQ)
 
+We can after successfull build we can see artifacts are uploaded to S3 bucket successfully ,we can also see that there is timestamp attached to Artifact name due to configuration in pom.xml file.
+
+[![Screenshot-2022-11-01-at-19-03-57.png](https://i.postimg.cc/hPw3bYxP/Screenshot-2022-11-01-at-19-03-57.png)](https://postimg.cc/56B3fnnZ)
+
 Overview of pipeline
 
 [![Screenshot-2022-11-01-at-18-28-15.png](https://i.postimg.cc/SNpj31kD/Screenshot-2022-11-01-at-18-28-15.png)](https://postimg.cc/BtMq1g8K)
+
 
 
 
