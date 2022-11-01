@@ -204,7 +204,21 @@ Our pipeline consists from 4 stages.
 
 We will also enable SNS Notifications for any status for pipeline ,such as Failure or Success.
 
+Any commit will make CloudWatch to send trigger request to initiate Pipeline.
 
+Below screenshot shows Status,Source revisions ,Duration ,Completed ,Trigger.We can easily see that last 2 execution started by CloudWatch Events.
+
+[![Screenshot-2022-11-01-at-18-11-17.png](https://i.postimg.cc/Dw3B462D/Screenshot-2022-11-01-at-18-11-17.png)](https://postimg.cc/zVpn9nHS)
+
+We can also verify that our SNS Notifications are working fine with below screenshot.
+
+[![Screenshot-2022-11-01-at-18-25-59.png](https://i.postimg.cc/DwZpTgcb/Screenshot-2022-11-01-at-18-25-59.png)](https://postimg.cc/2Vs7dnMz)
+
+[![Screenshot-2022-11-01-at-18-27-07.png](https://i.postimg.cc/TYhn2HZG/Screenshot-2022-11-01-at-18-27-07.png)](https://postimg.cc/7f85mXHQ)
+
+Overview of pipeline
+
+[![Screenshot-2022-11-01-at-18-28-15.png](https://i.postimg.cc/SNpj31kD/Screenshot-2022-11-01-at-18-28-15.png)](https://postimg.cc/BtMq1g8K)
 
 
 
