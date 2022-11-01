@@ -202,7 +202,7 @@ Our pipeline consists from 4 stages.
 * Build (This stage runs **build_artifact** which we created before ,per builspect it will create artifact)
 * Deploy (This stage will deploy artifacts to S3 bucket)
 
-
+We will also enable SNS Notifications for any status for pipeline ,such as Failure or Success.
 
 
 
