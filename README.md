@@ -109,8 +109,6 @@ For all of them will need to create parameter on SSM
 
 ### Create Build Project
 
-It is like creating Jenkins project on premise ,this time we will do it via CodeBuild on AWS.
-
 Following configuration parameters will set
 
 * Source Provider > AWS CodeCommit (It will be our private repo ,like our GitHub repo) 
@@ -184,6 +182,25 @@ In our second try project has failed ,because our rule does not meet our as cond
 
 As seen on picture ,SonarQube detected 71 bugs ,which is above our condition (30 bugs).
 
+### Configure Notification with SNS
+
+We will create Topic (devops-zhajili-pipeline-notifications)  and will add our mail address as subscriber.
+
+### Create Pipeline
+
+Pipeline name > zhajili-CI-pipeline
+Role name > AWSCodePipelineServiceRole-us-east-1-zhajili-CI-pipeline
+Source provider > AWS CodeCommit
+Change detection > AWS Cloud Watch(recommended) .It will detect events and trigger the pipeline
+Build provider > AWS CodeBuild
+Deploy provider > AWS S3
+
+Our pipeline consists from 4 stages.
+
+* Source (consists all source code for project ,all files are commited here)
+* Sonar-Cloud-Analysis (This stage runs our **sonar_code_analysis** which we created before ,it will send report to Cloud SonarQube ,pipeline will stop if we will fail to meet condition)
+* Build (This stage runs **build_artifact** which we created before ,per builspect it will create artifact)
+* Deploy (This stage will deploy artifacts to S3 bucket)
 
 
 
