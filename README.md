@@ -224,6 +224,10 @@ Overview of pipeline
 
 [![Screenshot-2022-11-01-at-18-28-15.png](https://i.postimg.cc/SNpj31kD/Screenshot-2022-11-01-at-18-28-15.png)](https://postimg.cc/BtMq1g8K)
 
+Nice links for troubleshooting issues during implementation.
+
+https://github.com/awslabs/aws-refarch-cross-account-pipeline/issues/5
+
 
 
 
